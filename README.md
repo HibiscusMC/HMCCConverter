@@ -3,6 +3,14 @@
 
 HMCCConverter (HMCCC) is a discord bot that allows users to upload files that are in the format of CosmeticCore and MCCosmetics to turn them into HMCCosmetics.
 
+## Servers with the bot
+
+A hosted version of this bot can be used in the [Hibiscus Creative Studios Discord Server](https://discord.gg/pcm8kWrdNt).
+
+## Using the Bot
+
+You can do `/convert <originalCosmeticPlugin> <file> (forceslot)` command in discord to use the bot. The bot will then convert the file and send it to you.
+
 ## Running the bot
 
 To run the bot, ensure that you have Java 17 installed. Next, create `config.properties` inside the folder the jar is located and put:

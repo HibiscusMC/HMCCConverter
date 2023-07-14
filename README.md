@@ -7,7 +7,7 @@ HMCCConverter (HMCCC) is a discord bot that allows users to upload files that ar
 
 A hosted version of this bot can be used in the [Hibiscus Creative Studios Discord Server](https://discord.gg/pcm8kWrdNt).
 
-## Using the Bot
+### Using the Bot
 
 You can do `/convert <originalCosmeticPlugin> <file> (forceslot)` command in discord to use the bot. The bot will then convert the file and send it to you.
 

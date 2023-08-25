@@ -3,6 +3,7 @@ package com.hibiscus.hmccconverter.listener;
 import com.hibiscus.hmccconverter.Main;
 import com.hibiscus.hmccconverter.converter.CosmeticCoreConverter;
 import com.hibiscus.hmccconverter.converter.MCCosmeticConverter;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -142,6 +143,7 @@ public class SlashCommand extends ListenerAdapter {
             String log = "[" + time + "] " + message + "\n";
             System.out.println(log);
             Files.write(logger.toPath(), (log).getBytes(), StandardOpenOption.APPEND);
+            Main.getJda().getPresence().setActivity(Activity.playing("with " + Files.readAllLines(logger.toPath()).size() + " converted HMCC configurations!"));
         } catch (Exception e) {
             e.printStackTrace();
         }

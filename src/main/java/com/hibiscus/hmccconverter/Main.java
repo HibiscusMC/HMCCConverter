@@ -4,6 +4,7 @@ import com.hibiscus.hmccconverter.listener.SlashCommand;
 import com.hibiscus.hmccconverter.listener.SlashCommandAutoComplete;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -41,6 +42,8 @@ public class Main {
                 .addEventListeners(new SlashCommand())
                 .addEventListeners(new SlashCommandAutoComplete())
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
+                .setAutoReconnect(true)
+                .setActivity(Activity.playing("Converting files to HMCC!"))
                 .build();
 
         jda.updateCommands().addCommands(Commands.slash("convert", "Converts a file to HMCC")

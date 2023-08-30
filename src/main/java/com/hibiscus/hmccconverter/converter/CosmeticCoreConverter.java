@@ -5,11 +5,12 @@ import org.spongepowered.configurate.ConfigurationNode;
 
 import java.util.List;
 
-public class CosmeticCoreConverter {
+public class CosmeticCoreConverter extends Converter {
 
     private static List<String> baseMaterial = List.of("paper", "leather_horse_armor", "potion");
 
-    public static ConfigurationNode convert(CommentedConfigurationNode oldConfig, CommentedConfigurationNode newConfig, String filename, String slot) {
+    @Override
+    public ConfigurationNode convert(CommentedConfigurationNode oldConfig, CommentedConfigurationNode newConfig, String filename, String slot) {
 
         for (ConfigurationNode cosmetic : oldConfig.childrenMap().values()) {
             try {

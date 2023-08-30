@@ -5,9 +5,10 @@ import org.spongepowered.configurate.ConfigurationNode;
 
 import java.util.List;
 
-public class MCCosmeticConverter {
+public class MCCosmeticConverter extends Converter {
 
-    public static ConfigurationNode convert(CommentedConfigurationNode oldConfig, CommentedConfigurationNode newConfig, String filename, String slot) {
+    @Override
+    public ConfigurationNode convert(CommentedConfigurationNode oldConfig, CommentedConfigurationNode newConfig, String filename, String slot) {
 
         if (slot == null) {
             switch (filename) {

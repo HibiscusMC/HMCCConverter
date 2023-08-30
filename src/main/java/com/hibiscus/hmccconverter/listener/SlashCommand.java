@@ -96,10 +96,10 @@ public class SlashCommand extends ListenerAdapter {
 
                 switch (type.toLowerCase()) {
                     case "mccosmetics" -> {
-                        MCCosmeticConverter.convert(oldConfig, newConfig, file.getName(), forceSlot);
+                        new MCCosmeticConverter().convert(oldConfig, newConfig, file.getName(), forceSlot);
                     }
                     case "cosmeticcore" -> {
-                        CosmeticCoreConverter.convert(oldConfig, newConfig, file.getName(), forceSlot);
+                        new CosmeticCoreConverter().convert(oldConfig, newConfig, file.getName(), forceSlot);
                     }
                     default -> {
                         hook.setContent("Invalid Plugin Conversion (Try `mccosmetics` or `cosmeticcore`!").setEphemeral(true).queue();

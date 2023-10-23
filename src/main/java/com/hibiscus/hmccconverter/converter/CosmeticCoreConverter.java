@@ -11,11 +11,12 @@ public class CosmeticCoreConverter extends Converter {
 
     @Override
     public ConfigurationNode convert(CommentedConfigurationNode oldConfig, CommentedConfigurationNode newConfig, String filename, String slot) {
+        if (!oldConfig.node("cosmetics").virtual()) oldConfig = oldConfig.node("cosmetics");
 
         for (ConfigurationNode cosmetic : oldConfig.childrenMap().values()) {
             try {
                 String id = cosmetic.key().toString();
-                String type = cosmetic.node("type").getString();
+                String type = cosmetic.node("type").getString("");
                 boolean dyable = cosmetic.node("dye", "enabled").getBoolean();
                 String material = null;
                 int modelData = -1;
@@ -65,7 +66,6 @@ public class CosmeticCoreConverter extends Converter {
     }
 
     private static String typeToSlot(String type) {
-        if (type == null) return null;
         switch (type.toLowerCase()) {
             case "hat" -> {
                 return "HELMET";

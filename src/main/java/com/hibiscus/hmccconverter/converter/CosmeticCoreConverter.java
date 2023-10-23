@@ -65,6 +65,7 @@ public class CosmeticCoreConverter extends Converter {
     }
 
     private static String typeToSlot(String type) {
+        if (type == null) return null;
         switch (type.toLowerCase()) {
             case "hat" -> {
                 return "HELMET";

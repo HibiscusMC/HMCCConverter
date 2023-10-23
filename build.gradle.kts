@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
 
-    implementation("net.dv8tion:JDA:5.0.0-beta.12")
+    implementation("net.dv8tion:JDA:5.0.0-beta.16")
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation("org.apache.commons:commons-lang3:3.4")
 

@@ -3,6 +3,7 @@ package com.hibiscus.hmccconverter.listener;
 import com.hibiscus.hmccconverter.Main;
 import com.hibiscus.hmccconverter.converter.CosmeticCoreConverter;
 import com.hibiscus.hmccconverter.converter.MCCosmeticConverter;
+import com.hibiscus.hmccconverter.converter.MagicCosmeticsConverter;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -101,8 +102,11 @@ public class SlashCommand extends ListenerAdapter {
                     case "cosmeticcore" -> {
                         new CosmeticCoreConverter().convert(oldConfig, newConfig, file.getName(), forceSlot);
                     }
+                    case "magiccosmetics" -> {
+                        new MagicCosmeticsConverter().convert(oldConfig, newConfig, file.getName(), forceSlot);
+                    }
                     default -> {
-                        hook.setContent("Invalid Plugin Conversion (Try `mccosmetics` or `cosmeticcore`!").setEphemeral(true).queue();
+                        hook.setContent("Invalid Plugin Conversion (Try `mccosmetics`, `cosmeticcore`, or `magiccosmetics`!").setEphemeral(true).queue();
                         log(event.getMember().getId() + " (" + event.getMember().getEffectiveName() + ") " + "tried to convert a file without a valid plugin type!");
                     }
                 }

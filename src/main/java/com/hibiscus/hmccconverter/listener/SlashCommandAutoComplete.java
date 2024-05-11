@@ -12,7 +12,9 @@ public class SlashCommandAutoComplete extends ListenerAdapter {
 
     private String[] words = new String[]{
             "MCCosmetics",
-            "CosmeticCore"};
+            "CosmeticCore",
+            "MagicCosmetics"
+    };
     private String[] slots = new String[]{
             "HELMET",
             "CHESTPLATE",
@@ -41,7 +43,5 @@ public class SlashCommandAutoComplete extends ListenerAdapter {
                     .collect(Collectors.toList());
             event.replyChoices(options).queue();
         }
-
     }
-
 }

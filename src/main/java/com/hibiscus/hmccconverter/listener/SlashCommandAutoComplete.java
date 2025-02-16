@@ -29,7 +29,6 @@ public class SlashCommandAutoComplete extends ListenerAdapter {
 
     @Override
     public void onCommandAutoCompleteInteraction(CommandAutoCompleteInteractionEvent event) {
-        System.out.println(event.getName());
         if (!event.getName().equalsIgnoreCase("convert")) {
             return;
         }

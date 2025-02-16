@@ -5,6 +5,7 @@ import com.hibiscus.hmccconverter.converter.CosmeticCoreConverter;
 import com.hibiscus.hmccconverter.converter.MCCosmeticConverter;
 import com.hibiscus.hmccconverter.converter.MagicCosmeticsConverter;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -38,9 +39,14 @@ public class SlashCommand extends ListenerAdapter {
         if (event.getName().equals("convert")) {
             if (event.getUser().isBot()) return;
             ReplyCallbackAction hook = event.deferReply(true);
-            if (Main.requiresRole() && !event.getMember().getRoles().contains(event.getGuild().getRoleById(roleId))) {
-                log(event.getMember().getId() + " (" + event.getMember().getEffectiveName() + ") " + "tried to convert without the correct roles!");
-                event.reply("<@" + event.getMember().getId() + "> You need to have <@&" + roleId + "> role!\n\n**Purchase " + PRODUCT_NAME + "** to get access to these builds!\n\n"+ PRODUCT_NAME + ": " + BUY_LINK + "\n\n").setEphemeral(true).submit();
+            Member member = event.getMember();
+            if (member == null) {
+                event.reply("You must be in a server to use this command!").setEphemeral(true).submit();
+                return;
+            }
+            if (Main.requiresRole() && !member.getRoles().contains(event.getGuild().getRoleById(roleId))) {
+                log(member.getId() + " (" + member.getEffectiveName() + ") " + "tried to convert without the correct roles!");
+                event.reply("<@" + member.getId() + "> You need to have <@&" + roleId + "> role!\n\n**Purchase " + PRODUCT_NAME + "** to get access to these builds!\n\n"+ PRODUCT_NAME + ": " + BUY_LINK + "\n\n").setEphemeral(true).submit();
                 return;
             }
 
@@ -53,7 +59,7 @@ public class SlashCommand extends ListenerAdapter {
             Message.Attachment attachment = event.getOption("file").getAsAttachment();
             if (!extensions.contains(attachment.getFileExtension())) {
                 hook.setContent("Invalid file extension! Make sure it ends with `.yml` or `.yaml`").queue();
-                log(event.getMember().getId() + " (" + event.getMember().getEffectiveName() + ") " + "tried to convert a file with invalid extension!");
+                log(member.getId() + " (" + member.getEffectiveName() + ") " + "tried to convert a file with invalid extension!");
                 return;
             }
 

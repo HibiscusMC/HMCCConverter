@@ -48,9 +48,8 @@ public class Main {
 
         jda.updateCommands().addCommands(Commands.slash("convert", "Converts a file to HMCC")
                 .addOption(OptionType.STRING, "originalfiletype", "Original plugins type", true, true)
-                .addOption(OptionType.ATTACHMENT, "file", "Original plugins file", true)
+                .addOption(OptionType.ATTACHMENT, "file", "Original plugins file", true, false)
                 .addOption(OptionType.STRING, "forceslot", "Force to add certains slot", false, true)
-
         ).queue();
 
     }

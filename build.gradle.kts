@@ -9,17 +9,17 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+
+    maven("https://repo.spongepowered.org/maven/")
 }
 
 dependencies {
 
-    implementation("net.dv8tion:JDA:5.0.0-beta.16")
+    implementation("net.dv8tion:JDA:5.3.0")
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation("org.apache.commons:commons-lang3:3.4")
 
-
-    implementation("org.spongepowered:configurate-yaml:4.1.2")
-
+    implementation("org.spongepowered:configurate-yaml:4.2.0-SNAPSHOT")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }

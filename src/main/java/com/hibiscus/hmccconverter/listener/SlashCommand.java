@@ -61,7 +61,7 @@ public class SlashCommand extends ListenerAdapter {
                 File downloadFolder = new File(Main.getFolder() + "/download/");
                 if (!downloadFolder.exists()) downloadFolder.mkdir();
 
-                CompletableFuture<File> future = attachment.downloadToFile(downloadFolder + "/" + attachment.getFileName());
+                CompletableFuture<File> future = attachment.getProxy().downloadToFile(new File(downloadFolder + "/" + attachment.getFileName()));
                 File uploadFile = null;
 
                 File file = future.get();

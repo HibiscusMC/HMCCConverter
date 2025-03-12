@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CosmeticCoreConverter extends Converter {
 
-    private static List<String> baseMaterial = List.of("paper", "leather_horse_armor", "potion");
+    private static final List<String> baseMaterial = List.of("paper", "leather_horse_armor", "potion", "feather");
 
     @Override
     public ConfigurationNode convert(CommentedConfigurationNode oldConfig, CommentedConfigurationNode newConfig, String filename, String slot) {
